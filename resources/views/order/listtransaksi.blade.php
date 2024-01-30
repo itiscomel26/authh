@@ -41,8 +41,8 @@
         </tr>
         @endforeach
         <tr>
-            <td class="fw-bold" colspan="6">Total Harga</td>
-            <td>Rp. {{ number_format($total) }}</td>
+            <td class="font-weight-bold" colspan="6">Total Harga</td>
+            <td class="font-weight-bold text-danger">Rp. {{ number_format($total) }}</td>
         </tr>
       </tbody>
       <tfoot>
