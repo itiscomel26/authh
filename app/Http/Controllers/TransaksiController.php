@@ -54,9 +54,19 @@ class TransaksiController extends Controller
     return redirect()->route('transaksi');
 }
 
-public function listTransaksi(){
-    return view('order.listtransaksi');
-}
+    public function listTransaksi() {
+        $data = DB::table('tb_transaksi')
+            ->join('tb_produk', 'tb_transaksi.barang_id', '=', 'tb_produk.id')
+            ->select('tb_transaksi.*', 'tb_produk.*') // Tentukan kolom yang ingin Anda ambil
+            ->get();
+
+    // Hitung total harga untuk setiap item
+        foreach ($data as $item) {
+        $total = $item->harga * $item->quantity;
+        }
+
+    return view('order.listtransaksi', compact('data', 'total'));
+    }
 
 
     /**

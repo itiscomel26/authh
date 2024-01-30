@@ -16,35 +16,43 @@
         <th>Gambar</th>
         <th>Nama Product</th>
         <th>Harga</th>
+        <th>Quantity</th>
         <th>Status</th>
         <th>Bukti Bayar</th>
         <th>Action</th>
       </tr>
       </thead>
       <tbody>
-        {{-- @foreach ($produk as $p)
+        @foreach ($data as $d)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $p->nama_produk }}</td>
-          <td>{{ $p->nama_kategori }}</td>
-          <td>Rp. {{ number_format($p->harga) }}</td>
-          <td><img src="{{ Storage::disk('public')->url( $p->gambar ) }}" alt="Gambar Product" width="70px"></td>
-          <td>{{ $p->deskripsi }}</td>
+          <td><img src="{{ Storage::disk('public')->url( $d->gambar ) }}" alt="Gambar Product" width="70px"></td>
+          <td>{{ $d->nama_produk }}</td>
+          <td>Rp. {{ number_format($d->harga) }}</td>
+          <td>{{ $d->quantity }}</td>
+          <td>{{ $d->status }}</td>
+          <td>
+            <img src="{{ Storage::disk('public')->url( $d->bukti_bayar ) }}" alt="Gambar Product" width="70px">
+          </td>
           <td class="text-center">
-            <a href="{{ url('ganti', ['product' => $p->id ]) }}" class="btn  btn-primary">edit</a>
-            <a href="{{ url('delete', ['product' => $p->id]) }}" class="btn btn-danger"data-confirm-delete="true" >delete</a>
+            <a href="" class="btn  btn-primary">edit</a>
+            <a href="" class="btn btn-danger"data-confirm-delete="true" >delete</a>
           </td>
         </tr>
-        @endforeach --}}
-
+        @endforeach
+        <tr>
+            <td class="fw-bold" colspan="6">Total Harga</td>
+            <td>Rp. {{ number_format($total) }}</td>
+        </tr>
       </tbody>
       <tfoot>
         <th>No</th>
-        <th>Nama Product</th>
-        <th>Nama Kategori</th>
-        <th>Harga</th>
         <th>Gambar</th>
-        <th>Deskripsi</th>
+        <th>Nama Product</th>
+        <th>Harga</th>
+        <th>Quantity</th>
+        <th>Status</th>
+        <th>Bukti Bayar</th>
         <th>Action</th>
     </table>
   </div>
