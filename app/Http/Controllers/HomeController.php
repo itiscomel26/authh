@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $jenis=DB::table('table_categori')->get();
-        $barang=DB::table('tb_produk')->get();
-        return view('template.dashboard', compact('barang','jenis'));
+        $jenis = DB::table('table_categori')->get();
+        $barang = DB::table('tb_produk')->get();
+        return view('template.dashboard', compact('barang', 'jenis'));
     }
 };

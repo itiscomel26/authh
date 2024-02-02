@@ -1,71 +1,72 @@
 <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="" class="d-block">{{ Auth::user()->name }}</a>
-      </div>
+        <div class="image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+            <a href="" class="d-block">{{ Auth::user()->name }}</a>
+        </div>
     </div>
 
     <!-- SidebarSearch Form -->
     <div class="form-inline">
-      <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-          </button>t
+        <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                    <i class="fas fa-search fa-fw"></i>
+                </button>t
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
 
-        <li class="nav-item menu-open">
-          <a href="{{ url('/home') }}" class="nav-link active">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p>
-              Dashboard
+            <li class="nav-item menu-open">
+                <a href="{{ url('/home') }}" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dashboard
 
-            </p>
-          </a>
+                    </p>
+                </a>
 
-        </li>
-        @hasrole('admin')
-          <li class="nav-item">
-            <a href="{{ url('categori') }}" class="nav-link">
-              <i class="nav-icon fas fa-cart-shopping"></i>
-              <p>
-                Kategori
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('product.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-cart-shopping"></i>
-              <p>
-                Product
-              </p>
-            </a>
-          </li>
-          @endhasrole
-          {{-- @hasrole('user') --}}
-          <li class="nav-item">
-            <a href="{{ route('transaksi') }}" class="nav-link">
-              <i class="nav-icon fas fa-cart-shopping"></i>
-              <p>
-                Transaksi
-              </p>
-            </a>
-          </li>
-          {{-- @endhasrole --}}
-        {{-- <li class="nav-item">
+            </li>
+            @hasrole('admin')
+                <li class="nav-item">
+                    <a href="{{ url('categori') }}" class="nav-link">
+                        <i class="nav-icon fas fa-cart-shopping"></i>
+                        <p>
+                            Kategori
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('product.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-cart-shopping"></i>
+                        <p>
+                            Product
+                        </p>
+                    </a>
+                </li>
+            @endhasrole
+
+            @hasanyrole('user|admin')
+                <li class="nav-item">
+                    <a href="{{ route('transaksi') }}" class="nav-link">
+                        <i class="nav-icon fas fa-cart-shopping"></i>
+                        <p>
+                            Transaksi
+                        </p>
+                    </a>
+                </li>
+            @endhasanyrole
+            {{-- <li class="nav-item">
           <a href="pages/widgets.html" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
@@ -667,7 +668,7 @@
             <p>Informational</p>
           </a>
         </li> --}}
-      </ul>
+        </ul>
     </nav>
     <!-- /.sidebar-menu -->
-  </div>
+</div>
