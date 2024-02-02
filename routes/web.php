@@ -53,6 +53,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/order/{id}', [TransaksiController::class, 'orderID'])->name('order');
     Route::post('/order/store', [TransaksiController::class, 'store'])->name('order.store');
     Route::get('/uploadBukti/{id}', [TransaksiController::class, 'buktiBayar'])->name('upload');
+    Route::post('/uploadBukti/save/{id}', [TransaksiController::class, 'update'])->name('upload.save');
+    Route::get('/delete/{id}', [TransaksiController::class, 'destroy'])->name('delete');
 });
 
 Route::middleware(['auth', 'role:user|admin'])->group(function () {

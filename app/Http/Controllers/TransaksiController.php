@@ -108,7 +108,7 @@ class TransaksiController extends Controller
      */
     public function buktiBayar($id)
     {
-        $bukti = DB::table('tb_transaksi')->where('id', $id)->get();
+        $bukti = DB::table('tb_transaksi')->first('id', $id);
         return view('transaksi.upload', compact('bukti'));
     }
 
@@ -121,7 +121,12 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('tb_transaksi')->where('id', $id)->update([
+            'bukti_bayar' => $request->bukti_bayar->store('foto/bukti', 'public'),
+        ]);
+
+
+        return redirect('transaksi');
     }
 
     /**
@@ -132,6 +137,7 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('tb_transaksi')->where('barang_id', $id)->delete();
+        return redirect('home');
     }
 }

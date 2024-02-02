@@ -39,9 +39,10 @@
                             <td class="text-center">
                                 @hasrole('user')
                                     <a href="" class="btn  btn-primary">edit</a>
-                                    <a href="" class="btn btn-danger"data-confirm-delete="true">delete</a>
-                                    <a href="{{ route('upload', ['id' => $d->id]) }}"
-                                        class="btn btn-info mt-2"data-confirm-delete="true">Upload Bukti Bayar</a>
+
+                                    <a href="{{ route('upload', ['id' => $d->id]) }}" class="btn btn-info mt-2">Upload Bukti
+                                        Bayar</a>
+                                    <a href="{{ route('delete', ['id' => $d->id]) }}" class="btn btn-danger">delete</a>
                                 @endhasrole
                                 @hasrole('admin')
                                     <div class="dropdown d-flex align-items-center">
