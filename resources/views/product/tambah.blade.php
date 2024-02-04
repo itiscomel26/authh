@@ -1,5 +1,8 @@
 @extends('template.index')
 @section('content')
+<div class="card">
+
+    <div class="card-body">
 <form action="{{ url('saved') }}" method="POST" enctype="multipart/form-data">
   @csrf
                 <div class="card-body">
@@ -34,5 +37,7 @@
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-              </form>
+            </form>
+        </div>
+        </div>
 @endsection

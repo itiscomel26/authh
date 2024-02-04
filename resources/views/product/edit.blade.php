@@ -1,5 +1,8 @@
 @extends('template.index')
 @section('content')
+<div class="card">
+
+    <div class="card-body">
 @foreach ($produk as $p)
 <form action="{{ url('perbarui', ['produk'=>$p->id]) }}" method="POST" enctype="multipart/form-data">
   @csrf
@@ -24,7 +27,7 @@
       <input type="number" class="form-control" name="dataharga" value="{{ $p->harga }}" id="exampleInputPassword1" placeholder="Harga">
     </div>
     <div class="form-group">
-      <label for="exampleInputFile">Foto</label>
+      <label for="exampleInputFile">Foto</label>6
       <div class="input-group">
         <img src="{{Storage::disk('public')->url( $p->gambar ) }}" alt="" style="width: 120px">
           <input type="file" class="form-control" name="datagambar">
@@ -41,4 +44,6 @@
                 </div>
               </form>
               @endforeach
+            </div>
+        </div>
 @endsection

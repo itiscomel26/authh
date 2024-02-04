@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('tb_transaksi', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('barang_id');
+            $table->unsignedBigInteger('produk_id');
             $table->integer('quantity');
             $table->string('bukti_bayar')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('srtatus')->default(0);
             $table->timestamps();
-            $table->foreign('barang_id')->references('id')->on('tb_produk')->onDelete('cascade');
+            $table->foreign('produk_id')->references('id')->on('tb_produk')->onDelete('cascade');
         });
     }
 
